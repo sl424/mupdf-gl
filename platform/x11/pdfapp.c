@@ -1711,10 +1711,19 @@ void pdfapp_onmouse(pdfapp_t *app, int x, int y, int btn, int modifiers, int sta
 	{
 		if (btn == 1 && !app->iscopying)
 		{
+            /*
 			app->ispanning = 1;
 			app->selx = x;
 			app->sely = y;
 			app->beyondy = 0;
+            */
+			app->iscopying = 1;
+			app->selx = x;
+			app->sely = y;
+			app->selr.x0 = x;
+			app->selr.x1 = x;
+			app->selr.y0 = y;
+			app->selr.y1 = y;
 		}
 		if (btn == 3 && !app->ispanning)
 		{
